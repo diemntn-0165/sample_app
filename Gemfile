@@ -7,9 +7,11 @@ gem "bcrypt", "~>3.1.13"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap-sass", "3.4.1"
 gem "config"
+gem "faker", {git: "https://github.com/faker-ruby/faker.git", branch: "master"}
 gem "jbuilder", "~> 2.7"
 gem "mysql2", "~> 0.5"
 gem "net-smtp", require: false
+gem "pagy", "~> 5.10"
 gem "parser", ">= 2.6"
 gem "puma", "~> 5.0"
 gem "rails", "~> 6.1.5"
