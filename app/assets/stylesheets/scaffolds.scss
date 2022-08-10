@@ -1,5 +1,6 @@
+@import 'color';
 body {
-  background-color: #fff;
+  background-color: $white;
   color: #333;
   margin: 33px; 
 }
@@ -25,7 +26,7 @@ a:visited {
 }
 
 a:hover {
-  color: #fff;
+  color: $white;
   background-color: #000; 
 }
 
@@ -67,7 +68,7 @@ div.actions {
   font-size: 12px;
   margin: -7px -7px 0;
   background-color: #c00;
-  color: #fff; 
+  color: $white; 
 }
 
 #error_explanation ul li {
