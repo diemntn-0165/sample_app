@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: %i(show create new)
+  before_action :logged_in_user, except: %i(create new)
   before_action :find_user, except: %i(index new create)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: %i(destroy)
@@ -26,7 +26,10 @@ class UsersController < ApplicationController
 
   def edit; end
 
-  def show; end
+  def show
+    @pagy, @microposts = pagy @user.microposts.newest, page: params[:page],
+                                   items: Settings.pagy.page_size
+  end
 
   def update
     if @user.update(user_params)
@@ -53,14 +56,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user)
           .permit(:name, :email, :password, :password_confirmation)
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t ".require_login"
-    redirect_to login_path
   end
 
   def correct_user
